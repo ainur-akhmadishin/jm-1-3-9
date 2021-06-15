@@ -20,15 +20,18 @@ export default class  Task extends Component{
 		
 		const { text, addTime, onDelete} = this.props;
 		let liClass ='';
+		let checked = false
 		const {active} = this.state;
 		if (!active){
-			liClass +='completed'
+			liClass +='completed';
+			checked = !checked
+			
 		}
 		
 		
 		return <li className={liClass} >
 				<div className="view">
-					<input className="toggle" type="checkbox"/>
+					<input className="toggle" type="checkbox" checked = {checked} onClick = {this.onSpanClick}/>
 					<label>
 						<span className="description" onClick = {this.onSpanClick}>{text}</span>		
 						<span className="created"> created {addTime} ago </span>
